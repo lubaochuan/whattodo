@@ -1,0 +1,17 @@
+<section data-ng-controller="IdeasController" data-ng-init="find()">
+  <h1>Ideas</h1>
+  <ul>
+    <li data-ng-repeat="idea in ideas">
+      <a data-ng-href="#!/ideas/{{idea._id}}" 
+        data-ng-bind="idea.name"></a>
+      <br>
+      <small data-ng-bind="idea.created | date:'medium'"></small>
+      <small>/</small>
+      <small data-ng-bind="idea.creator.fullName"></small>
+      <p data-ng-bind="idea.desc"></p>
+    </li>
+  </ul>
+  <div data-ng-hide="!ideas || ideas.length">
+    No ideas yet, why don't you <a href="/#!/ideas/create">create one</a>?
+  </div>
+</section>

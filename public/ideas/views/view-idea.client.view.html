@@ -1,0 +1,13 @@
+<section data-ng-controller="IdeasController" data-ng-init="findOne()">
+  <h1 data-ng-bind="idea.name"></h1>
+  <div data-ng-show="authentication.user._id == idea.creator._id">
+    <a href="/#!/ideas/{{idea._id}}/edit">edit</a>
+    <a href="#" data-ng-click="delete();">delete</a>
+  </div>
+  <small>
+    <em>Posted on</em>
+    <em data-ng-bind="idea.created | date:'mediumDate'"></em> <em>by</em>
+    <em data-ng-bind="idea.creator.fullName"></em>
+  </small>
+  <p data-ng-bind="idea.desc"></p>
+</section>
